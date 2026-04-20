@@ -15,13 +15,18 @@ create table usuarios(
 ;
 create index idx_1_usuarios on usuarios (usuario)
 ;
-insert into usuarios values (1, "admin", "", "", today) 
-;
 create table claves_usuarios(
 	id_usuario serial not null primary key,
 	salt       char(65),
 	clave      char(65)
 )
+;
+!
+
+dbaccess <<!
+database control_erp
+;
+insert into usuarios values (1, "admin", "", "", today)
 ;
 insert into claves_usuarios values (1, "", "")
 ;

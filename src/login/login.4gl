@@ -12,7 +12,8 @@ database control_erp
 globals
 
 define
-        mensaje_error char(2000) # Mensaje de error generado
+        mensaje_error char(2000),           # Mensaje de error generado
+	usuario       like usuarios.usuario # Usuario
 
 end globals
 
@@ -30,8 +31,7 @@ define
 function solicitar_acceso()
 
 define
-	usuario like usuarios.usuario,     # Usuario
-	clave   like claves_usuarios.clave # Clave acceso
+	clave like claves_usuarios.clave # Clave acceso
 
 initialize usuario, clave to null
 
