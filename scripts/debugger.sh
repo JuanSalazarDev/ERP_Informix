@@ -2,7 +2,7 @@
 
 PROGRAMA=$1
 
-DBSRC=${PWD}/src/app:${PWD}/src/login:${PWD}/src/biblioteca:${PWD}/src/tablas:${DBSRC}
+DBSRC=${PWD}/src/app:${PWD}/src/login/4gl.d:${PWD}/src/biblioteca/4gl.d:${PWD}/src/tablas:${DBSRC}
 export DBSCR
 
 fgldb ${PROGRAMA}

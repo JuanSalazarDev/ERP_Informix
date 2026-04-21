@@ -1,0 +1,33 @@
+database control_erp
+
+screen
+{
+
+        [f01                   ]
+        [f02                   ]
+
+  USUARIO
+  -------
+ [f03                                   ]
+
+  CLAVE
+  -----
+ [f04                                   ]
+
+}
+end
+
+tables
+        usuarios
+	claves_usuarios
+
+attributes
+        f01 = formonly.field_1 type char, noentry;
+        f02 = formonly.field_2 type char, noentry;
+        f03 = usuarios.usuario, reverse;
+        f04 = claves_usuarios.clave, invisible, reverse;
+end
+
+instructions
+        delimiters " "
+end

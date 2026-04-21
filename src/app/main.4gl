@@ -37,7 +37,7 @@ end if
 
 if gestionar_datos_sesion(usuario) = false
 	then
-	error "No fue posible gestionar sesion, contacte equipo soporte"
+	error "No fue posible gestionar sesion, contacte al administrador"
 	exit program 1
 end if
 
