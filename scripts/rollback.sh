@@ -7,6 +7,8 @@ drop table usuarios
 ;
 drop table claves_usuarios
 ;
+drop table sesiones
+;
 !
 
 dbaccess <<!

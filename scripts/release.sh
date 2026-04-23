@@ -21,6 +21,12 @@ create table claves_usuarios(
 	clave      char(65)
 )
 ;
+create table sesiones(
+	usuario char(38) not null primary key,
+	pid     decimal(14,0) not null,
+	fecha   datetime year to second not null
+)
+;
 !
 
 dbaccess <<!
