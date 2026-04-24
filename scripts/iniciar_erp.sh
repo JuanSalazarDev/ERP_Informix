@@ -4,6 +4,19 @@ usuario=""
 
 #
 # ============================================================================================================
+# Eliminar sesion del usuario
+# ============================================================================================================
+#
+eliminar_sesion(){
+
+dbaccess control_erp <<!
+delete from sesiones
+where usuario = "${usuario}"
+!
+
+}
+#
+# ============================================================================================================
 # Eliminar sesiones que se encuentran activas
 # ============================================================================================================
 #
@@ -21,10 +34,7 @@ if echo "${eliminar}" | grep -qE "^[nN]$" ]]; then
 	return 1
 fi
 
-dbaccess control_erp <<!
-delete from sesiones
-where usuario = "${usuario}"
-!
+eliminar_sesion
 
 return 0
 
@@ -98,3 +108,5 @@ fi
 if ! gestionar_sesion; then
 	exit 1
 fi
+
+eliminar_sesion
