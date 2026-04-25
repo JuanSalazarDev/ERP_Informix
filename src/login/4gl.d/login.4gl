@@ -5,7 +5,7 @@
 # DESCRIPCION: Funciones de acceso a aplicacion
 # AUTOR: Juan Salazar
 # FECHA CREACION: 27/Mar/2026
-# FECHA ULTIMA MODIFICACION: 21/Abr/2026
+# FECHA ULTIMA MODIFICACION: 25/Abr/2026
 # ============================================================================================================
 #
 database control_erp
@@ -24,7 +24,7 @@ define
 # OBJETIVO: Solicitar acceso a la aplicacion
 # AUTOR: Juan Salazar
 # FECHA CREACION: 27/Mar/2026
-# FECHA ULTIMA MODIFICACION: 21/Abr/2026
+# FECHA ULTIMA MODIFICACION: 25/Abr/2026
 # ============================================================================================================
 #
 function solicitar_acceso()
@@ -88,7 +88,7 @@ if int_flag = true
 	return false
 end if
 
-if escribir_usuario_acceso(usuario) = false
+if escribir_id_usuario_acceso(id_usuario) = false
 	then
 	error mensaje_error clipped
 	return false
@@ -163,20 +163,20 @@ return false
 end function
 #
 # ============================================================================================================
-# FUNCION: escribir_usuario_acceso
+# FUNCION: escribir_id_usuario_acceso
 # OBJETIVO: Escribir en un archivo el usuario que accedio al sistema
 # AUTOR: Juan Salazar
 # FECHA CREACION: 21/Abr/2026
 # FECHA ULTIMA MODIFICACION: 21/Abr/2026
 # ============================================================================================================
 #
-function escribir_usuario_acceso(usuario)
+function escribir_id_usuario_acceso(id_usuario)
 
 define
-	usuario like usuarios.usuario, # Usuario
-	cmd     char(4800),            # Comando
-	ok      smallint,              # Indicador estado transaccion
-	archivo char(1000)             # Archivo donde se almacenara usuario de acceso
+	id_usuario like usuarios.usuario, # Usuario
+	cmd        char(4800),            # Comando
+	ok         smallint,              # Indicador estado transaccion
+	archivo    char(1000)             # Archivo donde se almacenara usuario de acceso
 
 initialize cmd, ok, archivo to null
 
@@ -188,7 +188,7 @@ if archivo is null or length(archivo) = 0
 	return false
 end if
 
-let cmd = "echo '", usuario clipped, "' > ", archivo clipped
+let cmd = "echo '", id_usuario using "<<<<<<<<", "' > ", archivo clipped
 run cmd returning ok
 
 if ok != 0

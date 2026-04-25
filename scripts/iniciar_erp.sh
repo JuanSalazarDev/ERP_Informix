@@ -1,6 +1,6 @@
 #!/bin/bash
 
-usuario=""
+id_usuario=""
 
 #
 # ============================================================================================================
@@ -11,7 +11,7 @@ eliminar_sesion(){
 
 dbaccess control_erp <<!
 delete from sesiones
-where usuario = "${usuario}"
+where id_usuario = "${id_usuario}"
 !
 
 }
@@ -51,7 +51,7 @@ local archivo_sesiones=/tmp/sesiones_${$}_$(date '+%Y%m%d')
 dbaccess control_erp <<!
 unload to "${archivo_sesiones}" delimiter ";"
 select count(*) from sesiones
-where usuario = "${usuario}"
+where id_usuario = "${id_usuario}"
 ;
 !
 
@@ -64,7 +64,7 @@ if [[ ${numero_sesiones} -ne 0 ]]; then
 fi
 
 dbaccess control_erp <<!
-insert into sesiones values ("${usuario}", ${$}, current)
+insert into sesiones values ("${id_usuario}", ${$}, current)
 ;
 !
 
@@ -86,10 +86,10 @@ if [[ $? -ne 0 ]]; then
 	return 1
 fi
 
-usuario=$(cat ${archivo_usuario})
+id_usuario=$(cat ${archivo_usuario})
 rm -rf ${archivo_usuario} 2> /dev/null
 
-if [[ -z "${usuario}" ]]; then
+if [[ -z "${id_usuario}" ]]; then
 	return 1
 fi
 

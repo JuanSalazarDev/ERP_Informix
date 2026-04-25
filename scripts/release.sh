@@ -16,15 +16,15 @@ create table usuarios(
 create index idx_1_usuarios on usuarios (usuario)
 ;
 create table claves_usuarios(
-	id_usuario serial not null primary key,
+	id_usuario decimal(8,0) not null primary key,
 	salt       char(65),
 	clave      char(65)
 )
 ;
 create table sesiones(
-	usuario char(38) not null primary key,
-	pid     decimal(14,0) not null,
-	fecha   datetime year to second not null
+	id_usuario decimal(8,0) not null primary key,
+	pid        decimal(14,0) not null,
+	fecha      datetime year to second not null
 )
 ;
 !
