@@ -20,6 +20,27 @@ define
 	id_usuario like usuarios.id # ID usuario
 #
 # ============================================================================================================
+# FUNCION: main()
+# DESCRIPCION: Inicio ejecucion programa
+# AUTOR: Juan Salazar
+# FECHA CREACION: 21/Abr/2026
+# FECHA ULTIMA MODIFICACION: 21/Abr/2026
+# ============================================================================================================
+#
+main
+
+defer interrupt
+
+if solicitar_acceso() = false
+        then
+        exit program 1
+end if
+
+exit program 0
+
+end main
+#
+# ============================================================================================================
 # FUNCION: solicitar_acceso()
 # OBJETIVO: Solicitar acceso a la aplicacion
 # AUTOR: Juan Salazar

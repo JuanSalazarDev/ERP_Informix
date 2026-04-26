@@ -21,5 +21,6 @@ for archivo_4gl in $(find . -type f -name "*.4gl"); do
 	mv ./${archivo_4go} bin/${directorio}/4go.d/
 done
 
-cat bin/login/4go.d/login.4go bin/login/4go.d/main_login.4go bin/biblioteca/4go.d/servicios_de_claves.4go \
+# Programa login
+cat bin/login/4go.d/login.4go bin/biblioteca/4go.d/servicios_de_claves.4go \
 	bin/tablas/4go.d/claves_usuarios.4go bin/tablas/4go.d/usuarios.4go > bin/login/login.4gi
